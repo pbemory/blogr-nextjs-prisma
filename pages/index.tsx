@@ -23,20 +23,19 @@ type Props = {
   feed: PostProps[]
 }
 
-const Blog: React.FC<Props> = (props) => {
-  return (
-    <Layout>
-      <div className="page">
-        <h1>Public Feed</h1>
-        <main>
-          {props.feed.map((post) => (
-            <div key={post.id} className="post">
-              <Post post={post} />
-            </div>
-          ))}
-        </main>
-      </div>
-      <style jsx>{`
+const Blog = ({ feed }: Props) => (
+  <Layout>
+    <div className="page">
+      <h1>Public Feed</h1>
+      <main>
+        {feed.map((post) => (
+          <div key={post.id} className="post">
+            <Post {...post} />
+          </div>
+        ))}
+      </main>
+    </div>
+    <style jsx>{`
         .post {
           background: white;
           transition: box-shadow 0.1s ease-in;
@@ -50,8 +49,7 @@ const Blog: React.FC<Props> = (props) => {
           margin-top: 2rem;
         }
       `}</style>
-    </Layout>
-  )
-}
+  </Layout>
+)
 
-export default Blog
+export default Blog;

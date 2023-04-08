@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { signOut, useSession } from 'next-auth/react';
 
-const Header: React.FC = () => {
+const Header = () => {
   const router = useRouter();
   const isActive: (pathname: string) => boolean = (pathname) =>
     router.pathname === pathname;
@@ -207,6 +207,6 @@ const Header: React.FC = () => {
       `}</style>
     </nav>
   );
-};
+}
 
 export default Header;

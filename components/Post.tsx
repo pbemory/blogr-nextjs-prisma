@@ -13,13 +13,13 @@ export type PostProps = {
   published: boolean;
 };
 
-const Post: React.FC<{ post: PostProps }> = ({ post }) => {
-  const authorName = post.author ? post.author.name : "Unknown author";
+const Post = ({id,title,author,content,published}: PostProps) => {
+  const authorName = author ? author.name : "Unknown author";
   return (
-    <div onClick={() => Router.push("/p/[id]", `/p/${post.id}`)}>
-      <h2>{post.title}</h2>
+    <div onClick={() => Router.push("/p/[id]", `/p/${id}`)}>
+      <h2>{title}</h2>
       <small>By {authorName}</small>
-      <ReactMarkdown children={post.content} />
+      <ReactMarkdown children={content} />
       <style jsx>{`
         div {
           color: inherit;
@@ -28,6 +28,6 @@ const Post: React.FC<{ post: PostProps }> = ({ post }) => {
       `}</style>
     </div>
   );
-};
+}
 
 export default Post;

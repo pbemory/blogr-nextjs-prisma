@@ -5,11 +5,11 @@ type Props = {
   children: ReactNode;
 };
 
-const Layout: React.FC<Props> = (props) => (
-  <div>
-    <Header />
-    <div className="layout">{props.children}</div>
-    <style jsx global>{`
+const Layout = ({ children }: Props) => (
+    <div>
+      <Header />
+      <div className="layout">{children}</div>
+      <style jsx global>{`
       html {
         box-sizing: border-box;
       }
@@ -39,12 +39,12 @@ const Layout: React.FC<Props> = (props) => (
         cursor: pointer;
       }
     `}</style>
-    <style jsx>{`
+      <style jsx>{`
       .layout {
         padding: 0 2rem;
       }
     `}</style>
-  </div>
-);
+    </div>
+  )
 
-export default Layout;
+  export default Layout;
