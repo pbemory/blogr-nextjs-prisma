@@ -32,7 +32,7 @@ type Props = {
     drafts: PostProps[];
 };
 
-const Drafts: React.FC<Props> = (props) => {
+const Drafts = ({drafts}: Props) => {
     const { data: session } = useSession();
   
     if (!session) {
@@ -49,9 +49,9 @@ const Drafts: React.FC<Props> = (props) => {
         <div className="page">
           <h1>My Drafts</h1>
           <main>
-            {props.drafts.map((post) => (
+            {drafts.map((post) => (
               <div key={post.id} className="post">
-                <Post post={post} />
+                <Post {...post} />
               </div>
             ))}
           </main>
